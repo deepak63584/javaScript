@@ -1,6 +1,6 @@
 /************************** Username *******************************/
 
-var rls = require('readline-sync')
+var readlinessync = require('readline-sync')
 module.exports = {
     relaceuser(username) {
         try {
@@ -154,7 +154,7 @@ module.exports = {
         console.log("2. Convert from celsius to fehrenheit");
         //console.log("Enter your choice");
 
-        var choice = rls.questionInt('Enter your choice')
+        var choice = readllinesync.questionInt('Enter your choice')
         //         switch (choice) {
         //             //press 1
         //             case "1":
@@ -237,6 +237,40 @@ module.exports = {
     },
 
 
+    /******************************* factorial *******************************/
+
+
+    factorial(n) {
+        var factorial1 = 0;
+        if (n === 0) {
+            return 1;
+        } else {
+            //console.log(bhjgk);
+
+            return factorial1(n - 1) * n;
+        }
+    },
+
+    /****************************** Coupen code *******************************/
+
+    //Coupen number genrator by using random function
+    coupon_code(couponcode2) {
+        var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789';
+
+        var max = 100000000;
+        var random = parseInt(Math.random() * max)
+        var str = " ";
+        var arr = [];
+        while (random > 0) {
+            readlinessync.concat(chars[random % arr.length]);
+            console.log(str);
+            random = parseInt(random / arr.length);
+            arr.push(str);
+        }
+
+        console.log(arr.join);
+        return random;
+    },
 
 
 
