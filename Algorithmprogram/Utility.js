@@ -162,6 +162,207 @@ module.exports = {
     },
 
 
+    isPalindrome(n) {
+        var i; var j;
+        var palindromearray = []
+        if (n.length >= 2) {
+
+            var n = n.toString()
+            var n1 = n                  //Original Number
+            var n2 = n.split("")
+            for (i = 0, j = n2.length - 1; i <= j; i++ , j--) {
+                var temp = n2[i];
+                n2[i] = n2[j]
+                n2[j] = temp
+            }
+            n2 = n2.join("")
+            // console.log(n2);
+
+            // console.log("Original Number: " + n1);
+            // console.log("Reversed Number: " + n2);
+
+            if (n1 == n2) {
+                console.log(n1)
+                palindromearray.push(n1)
+            }
+
+        }
+        return palindromearray
+
+    },
+
+
+
+    sort() {
+        var nums = [7, -5, 3, 2, 1, 0, 45];
+        console.log("Before sorting :");
+
+        console.log(nums);
+
+        console.log("After sorting :");
+
+
+        var left = 0;
+        var right = nums.length;
+        if (left < right) {
+            // Find the middle point
+            var m = (left + right) / 2;
+
+            // Sort first halve
+            this.sort(nums, left, m);
+            // Sort second halve
+            this.sort(nums, m + 1, right);
+
+            // Merge the sorted halves
+            this.merge(nums, left, m, right);
+        }
+        return 0;
+    },
+
+    merge(nums, left, m, right) {
+        var n1 = m - left + 1;
+        var n2 = right - m;
+
+        var Left_part_arra = [new int[n1]];
+        var Right_part_arra = [new int[n2]];
+
+        for (var i = 0; i < n1; ++i)
+            Left_part_arra[i] = nums[left + i];
+        for (var j = 0; j < n2; ++j)
+            Right_part_arra[j] = nums[m + 1 + j];
+
+        var i = 0, j = 0;
+
+        var k = left;
+        while (i < n1 && j < n2) {
+            if (Left_part_arra[i] <= Right_part_arra[j]) {
+                nums[k] = Left_part_arra[i];
+                i++;
+            }
+            else {
+                nums[k] = Right_part_arra[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < n1) {
+            nums[k] = Left_part_arra[i];
+            i++;
+            k++;
+        }
+
+        while (j < n2) {
+            nums[k] = Right_part_arra[j];
+            j++;
+            k++;
+        }
+        console.log(nums)
+    },
+
+
+    dayOfWeek(d, m, y) {
+        console.log(d, m, y);
+
+
+        var y0 = (y - (14 - m) / 12) | 0;
+        //console.log(y0);
+
+        var x = (y0 + y0 / 4 - y0 / 100 + y0 / 400) | 0;
+        //console.log(x);
+
+        var m0 = (m + 12 * ((14 - m) / 12) - 2) | 0;
+        //console.log(m0);
+
+        var d0 = (d + x + (31 * m0) / 12) % 7 | 0;
+        //console.log(d0);
+        console.log("your day is : ");
+
+        switch (d0) {
+            case 0:
+                console.log("Sunday");
+                break;
+            case 1:
+                console.log("Monday");
+                break;
+            case 2:
+                console.log("Tuesday");
+                break;
+            case 3:
+                console.log("Wednesday");
+                break;
+            case 4:
+                console.log("Thursday");
+                break;
+            case 5:
+                console.log("Friday");
+                break;
+            case 6:
+                console.log("Saturday");
+                break;
+            default:
+                console.log("Invalid");
+                break;
+        }
+
+
+    },
+
+
+    returnnotes(value) {
+        change = 0, TOTAL = 0;
+        console.log(TOTAL);
+
+        var notes = [1000, 500, 100, 50, 20, 10, 5, 2, 1];
+        while (value > 0) {
+            if (value / notes[change] != 0) {
+                TOTAL += (value / notes[change]) | 0;
+                console.log(TOTAL);
+                console.log(notes[change] + "rs notes :" + value / notes[change]);
+                value = value % notes[change];
+            }
+            change++;
+            if (value == 0) {
+                console.log("total notes :" + TOTAL);
+            }
+
+        }
+        console.log(value);
+        return notes;
+
+
+    },
+
+
+
+    swap(s1, i, j) {
+        var ch = []
+        ch = s1.toCharArray();
+        var temp;
+        temp = ch[i];
+        ch[i] = ch[j];
+        ch[j] = temp;
+        return new String(ch);
+    }
+    permutation(s2) {
+        var count = 0;
+        var s1 = " ";
+        //ArrayList < String > arl = new ArrayList<String>();
+        //List<? extends Object> list = new ArrayList<String>();
+        //ArrayList<String> obj = new ArrayList<String>(
+        for (var i = 0; i < s2.length(); i++) {
+            for (var j = 0; j < s2.length(); j++) {
+                s1 = s2;
+                console.log(i + " " + j);
+                Console.log(this.swap(s1, i, j));
+                count++;
+            }
+        }
+        Console.log("no of permutation :" + count);
+        return arl.toArray(new String[arl.size()]);
+
+    },
+
 
 
 

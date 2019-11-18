@@ -254,22 +254,32 @@ module.exports = {
     /****************************** Coupen code *******************************/
 
     //Coupen number genrator by using random function
-    coupon_code(couponcode2) {
-        var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789';
+    coupon_code() {
+        var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
+        //console.log(readline.question('generated coupen no is : \n'));
 
-        var max = 100000000;
-        var random = parseInt(Math.random() * max)
-        var str = " ";
-        var arr = [];
-        while (random > 0) {
-            readlinessync.concat(chars[random % arr.length]);
-            console.log(str);
-            random = parseInt(random / arr.length);
-            arr.push(str);
+
+        var max = 10000000;
+        var randomNum = parseInt(Math.random() * max)
+        var str1 = " ";
+        var arr1 = [];
+
+        // console.log(random % chars.length);
+
+        // console.log(chars[random % arr.length]);
+
+        // console.log(str.concat(chars[random % arr.length]));
+
+        var Nooftimes = readlinessync.question("eenter the Num of times to generate the coupen code : \n");
+        for (var i = 0; i < Nooftimes; i++) {
+            while (randomNum > 0) {
+                str1 = (chars[randomNum % chars.length]);
+                //console.log(str);
+                randomNum = parseInt(randomNum / chars.length);
+                arr1.push(str1);
+            }
         }
-
-        console.log(arr.join);
-        return random;
+        console.log("Generated coupen no is : \n" + arr1.join(""));
     },
 
 

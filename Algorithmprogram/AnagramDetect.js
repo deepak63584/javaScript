@@ -1,6 +1,6 @@
+
 const anagr = require('./Utility')
 const readline = require('readline-sync')
-
 var s1 = readline.question('Enter the first string :')
 
 var s2 = readline.question('Enter the second string :')
