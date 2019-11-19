@@ -1,6 +1,14 @@
 var readlinessync = require('readline-sync')
 module.exports = {
 
+
+    /*
+	  Function to count the characters in a string alphabaticlally and return array
+	  of the count of each alphabet
+	  
+	  s the string given to count
+	  return the array for counted characters
+	 */
     Counttest(s) {
         var count = [];
         s = s.toLowerCase();
@@ -11,6 +19,24 @@ module.exports = {
         return c;
     },
 
+    /*
+	   Function to count the value in given integer be place
+	   n the integer value to count
+	   return the integer array for the count value
+	 */
+    count(n) {
+        var count = new int[10];
+        var temp = n;
+        while (temp != 0) {
+            var r = temp % 10;
+            count[r]++;
+            temp = temp / 10;
+        }
+        return count;
+    },
+
+
+    //ANAGRAM-check the two strings are anagrams or not
     anagram(s1, s2) {
         console.log(s1, " " + s2)
         if (s1.length !== s2.length) {
@@ -25,8 +51,24 @@ module.exports = {
         }
         return true;
     },
+    //ANAGRAM-check the two integer are anagrams or not
+    isanagram(n1, n2) {
+        console.log(n1, " " + n2)
+        if (n1.length !== n2.length) {
+            return false;
+        }
+        n1count = this.count(n1);
+        n2count = this.count(n2);
+        for (var i = 0; i < n2count.length; i++) {
+            if (n2count[i] != n1count[i]) {
+                return false;
+            }
+        }
+        return true;
+    },
 
 
+    //Function to print the prime no between to 1 to 1000
     prime() {
         console.log();
         var b;
@@ -44,6 +86,8 @@ module.exports = {
         return 0;
     },
 
+
+    //Function to check if no is prime and also anagram or not
     primeAnagrams() {
         var ar = [];//generics concept
         console.log();
@@ -70,7 +114,7 @@ module.exports = {
             console.log(ar.length);
             console.log(ar);
             for (j = i + 1; j < ar.length; j++) {
-                if (this.anagram(ar[i], ar[j])) {
+                if (this.isanagram(ar[i], ar[j])) {
                     console.log(ar[i] + "  " + ar[j]);
                 }
             }
@@ -79,6 +123,34 @@ module.exports = {
     },
 
 
+    isPalindrome(s1) {
+        var s; var e = s1.length - 1;
+        var s2 = s1;
+        // for (s = 0, e = s1.length-1; s <= e; s++, e--){
+        // }
+        var s3 = s1.split("")
+        console.log(s3);
+        var temp
+        for (s = 0, e = s3.length - 1; s <= e; s++ , e--) {
+            temp = s3[s];
+            s3[s] = s3[e];
+            s3[e] = temp
+        }
+
+        console.log(" Str2 " + s2);
+        s3 = s3.join("")
+        console.log(" Str3 " + s3);
+
+        if (s2 === s3) {
+            console.log("Is Palindrome")
+        } else {
+            console.log("Not a Palindrome")
+        }
+    },
+
+
+
+    //Insertion sort for integer
     insertionSort() {
         var arr = [5, 2, 6, 1, 3, 9];
         var temp;
@@ -120,6 +192,10 @@ module.exports = {
     //     return arr;
     // },
 
+
+
+
+    //Bubble Sort for Integer
     bubbleSort(numbers) {
         //var numbers = [9, 4, 9, 24, 6, 14, 3, 7, 75, 10]
         var temp;
@@ -137,6 +213,9 @@ module.exports = {
         return numbers;
     },
 
+
+
+    //Integer Binary search
     binary(arr1, n) {
         var arr = this.bubbleSort(arr1);
         var high = arr.length - 1, low = 0, mid;
@@ -162,6 +241,12 @@ module.exports = {
     },
 
 
+    /*
+	 Function to find the is pallindrome or not
+	 
+	 n the integer which to check for pallindrome
+	 return true if its pallindrome or false if its not
+	 */
     isPalindrome(n) {
         var i; var j;
         var palindromearray = []
@@ -192,15 +277,8 @@ module.exports = {
     },
 
 
-
-    sort() {
-        var nums = [7, -5, 3, 2, 1, 0, 45];
-        console.log("Before sorting :");
-
-        console.log(nums);
-
-        console.log("After sorting :");
-
+    // to call the merge fuction
+    sort(nums, left, right) {
 
         var left = 0;
         var right = nums.length;
@@ -209,9 +287,9 @@ module.exports = {
             var m = (left + right) / 2;
 
             // Sort first halve
-            this.sort(nums, left, m);
+            sort(nums, left, m);
             // Sort second halve
-            this.sort(nums, m + 1, right);
+            sort(nums, m + 1, right);
 
             // Merge the sorted halves
             this.merge(nums, left, m, right);
@@ -261,6 +339,8 @@ module.exports = {
     },
 
 
+    //days of week-
+
     dayOfWeek(d, m, y) {
         console.log(d, m, y);
 
@@ -308,7 +388,7 @@ module.exports = {
 
     },
 
-
+    //Vending machine to return the node 
     returnnotes(value) {
         change = 0, TOTAL = 0;
         console.log(TOTAL);
@@ -335,31 +415,92 @@ module.exports = {
 
 
 
+    //PERMUTATION PROGRAM-
     swap(s1, i, j) {
         var ch = []
-        ch = s1.toCharArray();
+        ch = s1.toString();
         var temp;
         temp = ch[i];
         ch[i] = ch[j];
         ch[j] = temp;
         return new String(ch);
-    }
+    },
     permutation(s2) {
         var count = 0;
         var s1 = " ";
+        var arl = [];
         //ArrayList < String > arl = new ArrayList<String>();
         //List<? extends Object> list = new ArrayList<String>();
         //ArrayList<String> obj = new ArrayList<String>(
-        for (var i = 0; i < s2.length(); i++) {
-            for (var j = 0; j < s2.length(); j++) {
+        for (var i = 0; i < s2.length; i++) {
+            for (var j = 0; j < s2.length; j++) {
                 s1 = s2;
                 console.log(i + " " + j);
-                Console.log(this.swap(s1, i, j));
+                this.swap(s1, i, j);
                 count++;
             }
         }
-        Console.log("no of permutation :" + count);
-        return arl.toArray(new String[arl.size()]);
+        console.log("no of permutation :" + count);
+        console.log(arl.toString(new String[arl.length]));
+
+    },
+
+
+
+
+
+    // stopwatch function to find the system time by creating date fuction-
+    stopwatch() {
+        var d = new Date()
+        return d.getMilliseconds();
+    },
+
+
+
+
+
+
+
+    // multiply(a, b) {
+    //     var aNumRows = a.length, aNumCols = a[0].length,
+    //         bNumRows = b.length, bNumCols = b[0].length,
+    //         m = new Array(aNumRows);  // initialize array of rows
+    //     for (var r = 0; r < aNumRows; ++r) {
+    //         m[r] = new Array(bNumCols); // initialize the current row
+    //         for (var c = 0; c < bNumCols; ++c) {
+    //             m[r][c] = 0;             // initialize the current cell
+    //             for (var i = 0; i < aNumCols; ++i) {
+    //                 m[r][c] += a[r][i] * b[i][c];
+    //             }
+    //         }
+    //     }
+
+    //     for (var r = 0; r < m.length; ++r) {
+    //         document.write(m[r].join(' ') + '<br />');
+
+    //         return m;
+    //     }
+    // },
+
+
+    //Selection Sort on Array
+    selectionSort(arr) {
+        var temp, min;
+        for (var i = 0; i < arr.length - 1; i++) {
+            min = i;
+            for (var j = i + 1; j < arr.length; j++) {
+                // Finding the minimum element in the unsorted part of array
+                if (arr[min] > arr[j])
+                    min = j;
+            }
+            /* Swapping the found minimum element with the first
+             * element of the sorted subarray using temp variable
+             */
+            temp = arr[min];
+            arr[min] = arr[i];
+            arr[i] = temp;
+        }
+        console.log(arr);
 
     },
 

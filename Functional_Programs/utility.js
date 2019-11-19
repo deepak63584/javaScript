@@ -241,14 +241,11 @@ module.exports = {
 
 
     factorial(n) {
-        var factorial1 = 0;
-        if (n === 0) {
-            return 1;
-        } else {
-            //console.log(bhjgk);
-
-            return factorial1(n - 1) * n;
-        }
+        var fact = 1;
+        for (i = 1; i <= n; i++) {
+            factfs.readFileSync(fileName).toString().split(" ");
+            return content = fact * i;
+        } return fact;
     },
 
     /****************************** Coupen code *******************************/
