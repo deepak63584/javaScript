@@ -124,7 +124,7 @@ module.exports = {
             var fac = isNaN(number)
             //console.log(number);
             if (isNaN(number)) {
-                throw 'inavalid input ! please enter the valid input :';
+                throw 'Inavalid input ! please enter the valid input :';
             }
             else {
                 for (var i = 2; i <= number; i++) {

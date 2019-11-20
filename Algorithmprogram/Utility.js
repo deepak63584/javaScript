@@ -25,20 +25,20 @@ module.exports = {
 	   return the integer array for the count value
 	 */
     count(n) {
-        var count = new int[10];
+        var count1 = [];
         var temp = n;
         while (temp != 0) {
             var r = temp % 10;
-            count[r]++;
+            count1[r]++;
             temp = temp / 10;
         }
-        return count;
+        return count1;
     },
 
 
     //ANAGRAM-check the two strings are anagrams or not
     anagram(s1, s2) {
-        console.log(s1, " " + s2)
+        //console.log(s1, " " + s2)
         if (s1.length !== s2.length) {
             return false;
         }
@@ -122,8 +122,10 @@ module.exports = {
         return 0;
     },
 
+    //palindrom program -
+    ispalindrome(s1) {
+        console.log(s1);
 
-    isPalindrome(s1) {
         var s; var e = s1.length - 1;
         var s2 = s1;
         // for (s = 0, e = s1.length-1; s <= e; s++, e--){
@@ -277,7 +279,7 @@ module.exports = {
     },
 
 
-    // to call the merge fuction
+    // Devide into 2 subindex of array to call the merge fuction
     sort(nums, left, right) {
 
         var left = 0;
@@ -287,14 +289,17 @@ module.exports = {
             var m = (left + right) / 2;
 
             // Sort first halve
-            sort(nums, left, m);
-            // Sort second halve
-            sort(nums, m + 1, right);
+            this.sort(nums, left, m);
 
-            // Merge the sorted halves
-            this.merge(nums, left, m, right);
+            // Sort second halve
+            this.sort(nums, m + 1, right);
+            break;
+
+
         }
-        return 0;
+        // Merge the sorted halves
+        this.merge(nums, left, m, right);
+        return m;
     },
 
     merge(nums, left, m, right) {
@@ -391,15 +396,15 @@ module.exports = {
     //Vending machine to return the node 
     returnnotes(value) {
         change = 0, TOTAL = 0;
-        console.log(TOTAL);
+        //console.log(TOTAL);
 
         var notes = [1000, 500, 100, 50, 20, 10, 5, 2, 1];
         while (value > 0) {
-            if (value / notes[change] != 0) {
+            if (Math.floor(value / notes[change] != 0)) {
                 TOTAL += (value / notes[change]) | 0;
-                console.log(TOTAL);
-                console.log(notes[change] + "rs notes :" + value / notes[change]);
-                value = value % notes[change];
+                //console.log(TOTAL);
+                console.log(notes[change] + "rs notes :" + Math.floor(value / notes[change]));
+                value = Math.floor(value % notes[change]);
             }
             change++;
             if (value == 0) {
@@ -416,34 +421,66 @@ module.exports = {
 
 
     //PERMUTATION PROGRAM-
-    swap(s1, i, j) {
-        var ch = []
-        ch = s1.toString();
-        var temp;
-        temp = ch[i];
-        ch[i] = ch[j];
-        ch[j] = temp;
-        return new String(ch);
-    },
-    permutation(s2) {
-        var count = 0;
-        var s1 = " ";
-        var arl = [];
-        //ArrayList < String > arl = new ArrayList<String>();
-        //List<? extends Object> list = new ArrayList<String>();
-        //ArrayList<String> obj = new ArrayList<String>(
-        for (var i = 0; i < s2.length; i++) {
-            for (var j = 0; j < s2.length; j++) {
-                s1 = s2;
-                console.log(i + " " + j);
-                this.swap(s1, i, j);
+
+    permute(permutation) {
+        var count = 1;
+        var length = permutation.length;
+        var result = [permutation.slice()];
+        var c = new Array(length).fill(0);
+        var i = 1, k, p;
+
+        while (i < length) {
+            if (c[i] < i) {
+                k = i % 2 && c[i];
+                p = permutation[i];
+                permutation[i] = permutation[k];
+                permutation[k] = p;
+                ++c[i];
+                i = 1;
+                result.push(permutation.slice());
                 count++;
+            } else {
+                c[i] = 0;
+                ++i;
             }
         }
-        console.log("no of permutation :" + count);
-        console.log(arl.toString(new String[arl.length]));
-
+        console.log("No.of permutation : " + count);
+        console.log("premutation is : ");
+        return result;
     },
+
+
+    // swap1(s1, i, j) {
+    //     var ch = []
+    //     console.log(ch)
+    //     ch = s1.toString();
+    //     var temp;
+    //     temp = ch[i];
+    //     ch[i] = ch[j];
+    //     ch[j] = temp;
+    //     console.log([j])
+    //     console.log(ch)
+    //     return ch;
+    // },
+    // permutation(s2) {
+    //     var count = 0;
+    //     var s1 = " ";
+    //     var arl = [];
+    //     console.log(arl);
+
+    //     for (var i = 0; i < s2.length; i++) {
+    //         for (var j = 0; j < s2.length; j++) {
+    //             s1 = s2;
+    //             console.log(i + " " + j);
+    //             this.swap1(s1, i, j);
+    //             count++;
+    //         }
+    //     }
+    //     console.log("no of permutation :" + count);
+    //     console.log(arl.push([arl.length()]));
+
+
+    // },
 
 
 
@@ -502,6 +539,39 @@ module.exports = {
         }
         console.log(arr);
 
+    },
+
+
+    monthlyPayment(p, y, r) {
+        var n = 12 * y;
+        var r0 = r / (12 * 100);
+        var payment = p * r0 / (1 - Math.pow((1 + r0), -n));
+        return payment;
+    },
+
+
+
+
+    getAllPermutations(string) {
+        var results = [];
+
+        if (string.length === 1) {
+            results.push(string);
+            console.log(results);
+            return results;
+        }
+
+        for (var i = 0; i < string.length; i++) {
+            var firstChar = string[i];
+            var charsLeft = string.substring(0, i) + string.substring(i + 1);
+            var innerPermutations = this.getAllPermutations(charsLeft);
+            for (var j = 0; j < innerPermutations.length; j++) {
+                results.push(firstChar + innerPermutations[j]);
+            }
+
+        }
+
+        return results;
     },
 
 

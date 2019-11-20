@@ -18,7 +18,7 @@
 // // // var disp = a.split();
 // // // console.log(disp);
 
-// // // var max = 100000000;
+// // var max = 100000000;
 // // // var random = (Math.random() * max);
 
 // // // while (random > 0) {

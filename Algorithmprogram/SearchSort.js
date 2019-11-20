@@ -1,7 +1,7 @@
 const sortref = require('./Utility')
 const readline = require('readline-sync')
 
-var numbers = [9, 4, 9, 24, 6, 14, 3, 7, 75, 10];
+var numbers = [9, 5, 4, 9, 24, 6, 14, 3, 7, 75, 10];
 console.log("Before sorting :");
 console.log(numbers);
 

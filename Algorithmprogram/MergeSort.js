@@ -14,6 +14,8 @@ for (var i = 0; i < n; i++) {
 }
 
 console.log(nums);
+Array.toString(nums);
+console.log(nums)
 
 console.log("After sorting :");
 

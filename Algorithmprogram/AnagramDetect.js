@@ -5,7 +5,7 @@ var s1 = readline.question('Enter the first string :')
 
 var s2 = readline.question('Enter the second string :')
 
-//anagr.isAnagram((s1, s2) ? "Words are Anagram" : "Words are not Anagram");i
+//anagr.isAnagram((s1, s2) ? "Words are Anagram" : "Words are not Anagram");
 if (anagr.anagram(s1, s2)) {
     console.log("Words are Anagram")
 }

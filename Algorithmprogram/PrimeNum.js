@@ -1,4 +1,4 @@
 const primnum = require('./Utility')
-const readline = require('readline-sync')
+const read = require('readline-sync')
 
 primnum.prime();

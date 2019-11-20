@@ -1,26 +1,16 @@
-const input = require('./Utility')
+
 const readline = require('readline-sync')
 
-var d = new Date();
-console.log(d);
-
-
-var stttime1 = readline.questionInt("Enter 1 to start the time : \n");
-var stttime = d.getMilliseconds();
+var stttime = new Date().getSeconds() % 1000;
 console.log(stttime);
 
 var stoptime1 = readline.questionInt("Enter 0 to start the time : \n");
-if (stoptime1 === 0) {
-    var stoptime = d.getMilliseconds();
-    console.log(stoptime);
-}
-
-
-
+var stoptime = new Date().getSeconds() % 1000;
+console.log(stoptime);
 
 console.log("Elapsed time is : ")
 
-var elapstime = (stoptime - stttime);
+var elapstime = parseInt(stoptime - stttime);
 
 console.log(elapstime);
 

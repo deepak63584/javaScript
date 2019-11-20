@@ -4,7 +4,7 @@ var u = require('./Utility');
 var n = readline.questionInt("Enter the no of elements in array");
 
 var arr = [];
-console.log("enter the array elements:");
+console.log("Enter the array elements:");
 
 // Displays the array elements
 for (var i = 0; i < n; i++) {

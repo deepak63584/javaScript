@@ -1,6 +1,6 @@
 const binarysrch = require('./Utility')
 const readline = require('readline-sync')
-var arr1 = [3, 11, 35, 299, 45, 320, 5];
+var arr1 = [3, 11, 35, 299, 45, 320, 5, 23];
 
 console.log(arr1);
 

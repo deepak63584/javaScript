@@ -9,8 +9,6 @@ function isPalindrome(s1) {
     var s2 = s1;
     // for (s = 0, e = s1.length-1; s <= e; s++, e--){
 
-
-    // }
     var s3 = s1.split("")
     console.log(s3);
     var temp

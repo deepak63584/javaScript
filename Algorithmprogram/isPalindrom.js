@@ -1,5 +1,7 @@
-const input = require("readline-sync")
+const inputuser = require('./Utility')
+const rl = require("readline-sync")
 
-console.log("Enter a string")
-var str1 = input.question()
-input.isPalindrome(str1);
+//console.log("Enter a string")
+var str1 = rl.question("Enter a string : \n");
+
+inputuser.ispalindrome(str1);

@@ -9,7 +9,6 @@ var m = readline.questionInt("Enter the month : \n");
 var y = readline.questionInt("Enter the year : \n")
 
 
-//
 input.dayOfWeek(d, m, y);
 
 
