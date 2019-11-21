@@ -279,69 +279,102 @@ module.exports = {
     },
 
 
+    
+
     // Devide into 2 subindex of array to call the merge fuction
+
+
     sort(nums, left, right) {
 
-        var left = 0;
-        var right = nums.length;
+        // var left = 0;
+        // var right = nums.length;
         if (left < right) {
             // Find the middle point
-            var m = (left + right) / 2;
+            var mid = parseInt((left + right) / 2);
 
             // Sort first halve
-            this.sort(nums, left, m);
+            //console.log("Mid " + mid);
+            // console.log(this.sort(nums, left, mid));
+            // console.log(this.sort(nums, mid + 1, right));
+            // this.sort()
+            this.sort(nums, left, mid)
+            this.sort(nums, mid + 1, right)
 
             // Sort second halve
-            this.sort(nums, m + 1, right);
-            break;
+            nums = this.merge(nums, left, mid, right);
 
 
         }
         // Merge the sorted halves
-        this.merge(nums, left, m, right);
-        return m;
+        return nums;
     },
 
-    merge(nums, left, m, right) {
-        var n1 = m - left + 1;
-        var n2 = right - m;
+    merge(nums, left, mid, right) {
+        // console.log("Nums " + nums);
+        // console.log("Left Value " + left);
+        // console.log("m " + mid);
+        // console.log("right " + right);
 
-        var Left_part_arra = [new int[n1]];
-        var Right_part_arra = [new int[n2]];
+        var leftarray = [];
+        var rightarray = [];
+        var mergearray = [];
+        var i, k = 0;
 
-        for (var i = 0; i < n1; ++i)
-            Left_part_arra[i] = nums[left + i];
-        for (var j = 0; j < n2; ++j)
-            Right_part_arra[j] = nums[m + 1 + j];
+        //copying left half of array in leftarray
+        for (i = left; i <= mid; i++)
+            leftarray[k++] = nums[i];
 
-        var i = 0, j = 0;
+        //        console.log("Left Array:"+leftarray.join(" "));
+        //copying right half of array in rightarray    
+        k = 0;
+        for (i = mid + 1; i <= right; i++)
+            rightarray[k++] = nums[i];
 
-        var k = left;
-        while (i < n1 && j < n2) {
-            if (Left_part_arra[i] <= Right_part_arra[j]) {
-                nums[k] = Left_part_arra[i];
+        //       console.log("Right Array:"+rightarray.join(" "));
+
+        i = j = 0;
+        k = left;
+        var merge_array_index = 0;
+        while (i < leftarray.length && j < rightarray.length) {
+            if (leftarray[i] <= rightarray[j]) {
+                nums[k] = leftarray[i];
+                mergearray[merge_array_index++] = leftarray[i];
                 i++;
             }
             else {
-                nums[k] = Right_part_arra[j];
+                nums[k] = rightarray[j];
+                mergearray[merge_array_index++] = rightarray[j];
                 j++;
             }
             k++;
-        }
+        }//end of while 
 
-        while (i < n1) {
-            nums[k] = Left_part_arra[i];
+        /* Copy the remaining elements of L[], if there 
+           are any */
+        while (i < leftarray.length) {
+            nums[k] = leftarray[i];
+            mergearray[merge_array_index++] = leftarray[i];
             i++;
             k++;
         }
 
-        while (j < n2) {
-            nums[k] = Right_part_arra[j];
+        /* Copy the remaining elements of R[], if there 
+           are any */
+        while (j < rightarray.length) {
+            nums[k] = rightarray[j];
+            mergearray[merge_array_index++] = rightarray[j];
             j++;
             k++;
         }
-        console.log(nums)
-    },
+
+        //console.log("The Merged Array :"+mergearray.join(" "))
+
+        return nums;
+    },//end of divide_array
+
+
+
+
 
 
     //days of week-
