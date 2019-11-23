@@ -8,4 +8,4 @@ var key = readline.question('Enter your key do you whant to search :')
 
 //binarysrch.binary(key);
 
-console.log(binarysrch.binary(arr1, key));
+console.log("Key Found at : "+binarysrch.binary(arr1, key)+" Position");

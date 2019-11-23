@@ -25,7 +25,7 @@ module.exports = {
 	   return the integer array for the count value
 	 */
     count(n) {
-        var count1 = [];
+        var count1 = [10];
         var temp = n;
         while (temp != 0) {
             var r = temp % 10;
@@ -38,7 +38,7 @@ module.exports = {
 
     //ANAGRAM-check the two strings are anagrams or not
     anagram(s1, s2) {
-        //console.log(s1, " " + s2)
+        console.log(s1, " " + s2)
         if (s1.length !== s2.length) {
             return false;
         }
@@ -60,7 +60,7 @@ module.exports = {
         n1count = this.count(n1);
         n2count = this.count(n2);
         for (var i = 0; i < n2count.length; i++) {
-            if (n2count[i] != n1count[i]) {
+            if (n1count[i] != n2count[i]) {
                 return false;
             }
         }
@@ -80,10 +80,10 @@ module.exports = {
                     break;
                 }
             }
-            if (b)
-                console.log(j + "\t ");
+            if (b) { }
+            //console.log(j + "\t ");
         }
-        return 0;
+        return j;
     },
 
 
@@ -220,11 +220,11 @@ module.exports = {
     //Integer Binary search
     binary(arr1, n) {
         var arr = this.bubbleSort(arr1);
-        var high = arr.length - 1, low = 0, mid;
+        var high = arr.length - 1, low = 0, mid = 0;
 
         //var key = readlinessync.question('Enter your key do you whant to search :')
 
-        console.log(arr);
+        console.log(arr1);
 
         while (low <= high) {
             mid = (low + high) / 2;
@@ -279,10 +279,15 @@ module.exports = {
     },
 
 
-    
+
 
     // Devide into 2 subindex of array to call the merge fuction
-
+/**
+ * 
+ * @param {*} nums: 
+ * @param {*} left 
+ * @param {*} right 
+ */
 
     sort(nums, left, right) {
 

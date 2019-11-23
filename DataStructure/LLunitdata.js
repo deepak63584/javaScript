@@ -1,5 +1,4 @@
 
-
 class Node {
     constructor(data) {
         this.data = data;
@@ -91,19 +90,18 @@ class LinkedList {
     /*************************************DisplayStringList method************************/
     DisplayStringList() {
         var current = this.head;
-        // console.log(this.head);
-        var arr = " ";
-        while (current != null) {
-            // var arr = " ";
-            arr += current.data + "->";
-            current = current.next;
-
-
+        if (head != null) {
+            while (current != null) {
+                console.log(current.data + "-->");
+                current = current.next;
+            }
+            console.log("null");
+            console.log();
         }
-        console.log(arr);
-        console.log();
+        else {
+            console.log("List is empty");
+        }
     }
-
     /***************************************ReturnString method************************/
     ReturnString() {
         var stringText = "";
@@ -287,67 +285,6 @@ class LinkedList {
 
 
 
-/**
- * 
- * @param {*} readlinessync : fetch the value fom user :
- * @param {*} module : Export module from server :
- * 
- */
-var readlinessync = require('readline-sync')
-module.exports = {
-    LinkedList,
-
-    //**
-    //* 
-    //* @param {*} str1 :
-    //* @param {*} str2 :
-    //*/
-
-    isAnagram(str1, str2) {
-        //var str1=13,13,11;
-        //var str2=23,11,19;
-        var check = false;
-        var count = 0;
-        var string1 = str1.toString().split("");
-        string1.sort();
-        var string2 = str2.toString().split("");
-        string2.sort();
-
-        var l1 = string1.length;
-        //console.log(l1);
-        if (string1.length != string2.length) {
-            return false;
-        }
-
-        else {
-            for (var i = 0; i < l1; i++) {
-                if (string1[i] == string2[i]) {
-                    count++;
-                }
-            }
-            if (count == string1.length) {
-                return true;
-                //console.log("string are anagram");
-            }
-            else {
-                return false;
-                //console.log("string are not anagram");
-            }
-        }
-    },
-    sort(no) {
-        var arr = no;
-        for (var i = 0; i < arr.length - 1; i++) {
-            for (var j = i + 1; i < arr.length; j++) {
-                if (no[i] < no[j]) {
-                    var temp = no[i];
-                    no[i] = no[j];
-                    no[j] = temp;
-                }
-            }
-        }
-        return (arr);
-    },
 
 
 
@@ -363,4 +300,199 @@ module.exports = {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.next = null;
+    }
 }
+
+class LinkedList {
+    constructor() {
+        this.head = null;
+        this.size = 0;
+    }
+    isempty() {
+        if (this.head == 0) {
+            console.log("In list, No data is present ! its Empty : ")
+        }
+    }
+
+    printList() {
+        var current = this.head;
+        var str = "";
+        while (current != null) {
+            str += " -> " + current.data;
+            current = current.next;
+        }
+        console.log(str);
+        return str;
+    }
+
+    addNode(data) {
+        var node = new Node(data);
+        var current = this.head;
+        if (this.head == null) {
+            this.head = node;
+            this.size++;
+            //console.log(data);
+        }
+        else {
+            while (current.next) {
+                current = current.next;
+            }
+            current.next = node;
+        } this.size++;
+    }
+
+    specificPosition(data, pos) {
+        var node = new Node(data);
+        var curr, prev;
+        curr = this.head;
+        if (pos == 0) {
+            node.next = this.head;
+            this.head = node;
+            this.size++;
+        }
+        else {
+            var current = this.head;
+            var it = 0;
+            while (it < pos) {
+                it++;
+                prev = current;
+                current = current.next;
+            }
+            prev.next = node;
+            node.next = current;
+        } this.size++;
+    }
+    removeElementIndex(pos) {
+        var current, prev;
+        current = this.head;
+        if (pos == 0) {
+            this.head = current.next;
+            this.size--;
+        }
+        else {
+            var current = this.head;
+            var it = 0;
+            while (it < pos) {
+                it++;
+                prev = current;
+                current = current.next;
+            }
+            prev.next = current.next;
+        } this.size--;
+    }
+
+    removeElement(element) {
+        var prev = null;
+        var current = this.head;
+        while (current != null) {
+            if (current.data == element) {
+                if (prev == null)
+                    this.head = current.next;
+                else
+                    prev.next = current.next;
+            } prev = current;
+            current = current.next;
+        }
+    }
+    searchElement(element) {
+        var current = this.head;
+        var pos = 0;
+
+        while (current != null) {
+            if (current.data == element) {
+                //console.log("found");
+                return true;
+            }
+            pos++;
+            current = current.next;
+        } return false;
+    }
+
+
+
+    sort() {
+        var current = this.head;
+        var index;
+        if (this.head == null) {
+            return;
+        }
+        else {
+            while (current != null) {
+                index = current.next;
+                while (index != null) {
+                    if (current.data > index.data) {
+                        console.log(current.data);
+                        console.log(index.data);
+                        var temp = current.data;
+                        current.data = index.data;
+                        index.data = temp;
+                    }
+                    index = index.next;
+                }
+                current = current.next;
+            }
+        }
+    }
+}
+
+
+
+

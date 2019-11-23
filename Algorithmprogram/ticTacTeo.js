@@ -1,6 +1,7 @@
 const readline = require('readline-sync')
 
-function tictacteo() {
+tictacteo()
+{
     let player = 0;
     let Board = new Array[3][3];
     let isEmpty = true;
@@ -17,7 +18,8 @@ function tictacteo() {
         console.log("Board is this : \n ");
         dispBoard();
     }
-    dispBoard(){
+    dispBoard()
+    {
         var count = 0;
         for (var i = 0; i < Board.length; i++) {
             console.log("---------------");
@@ -44,7 +46,8 @@ function tictacteo() {
      * BOARD[i][j] = 0; } else BOARD[i][j] = 1; }
      */
 
-    putVal() {
+    putVal()
+    {
         var i;
         var j;
         if (player % 2 == 1) {
@@ -52,8 +55,8 @@ function tictacteo() {
             j = (Math.random() * 10) % 3;
         } else {
             var s = readline.question("enter value of x and y by space : \n")
-            i = s.nextInt();
-            j = s.nextInt();
+            i = s.next();
+            j = s.next();
         }
         if (Board[i][j] == -10) {
             if (player % 2 == 0) {
@@ -69,7 +72,8 @@ function tictacteo() {
 
     }
 
-    win() {
+    win()
+    {
         return ((Board[0][0] + Board[0][1] + Board[0][2] == player * 3)
             || (Board[1][0] + Board[1][1] + Board[1][2] == player * 3)
             || (Board[2][0] + Board[2][1] + Board[2][2] == player * 3)
@@ -79,31 +83,30 @@ function tictacteo() {
             || (Board[0][0] + Board[1][1] + Board[2][2] == player * 3)
             || (Board[2][0] + Board[1][1] + Board[0][2] == player * 3));
     }
-
-    play() {
-        this.Board();
-        while (this.isEmpty) {
-            console.log("Players turn");
-            this.putVal();
-            this.dispBoard();
-            if (this.win()) {
-                console.log("Player won");
-                return;
-            }
-            this.player = 1;
-            console.log("Computers turn");
-            this.putVal();
-            this.dispBoard();
-            if (this.win()) {
-                console.log("Computer won");
-                return;
-            }
-            this.player = 0;
+}
+play
+{
+    this.Board();
+    while (this.isEmpty) {
+        console.log("Players turn");
+        this.putVal();
+        this.dispBoard();
+        if (this.win()) {
+            console.log("Player won");
+            return;
         }
+        this.player = 1;
+        console.log("Computers turn");
+        this.putVal();
+        this.dispBoard();
+        if (this.win()) {
+            console.log("Computer won");
+            return;
+        }
+        this.player = 0;
     }
-
-    this.play();
 }
 
+play();
 
 
