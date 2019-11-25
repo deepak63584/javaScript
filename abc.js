@@ -145,3 +145,100 @@ board.fillX(1, 3, 5, 6);
 board.fillO(0, 2, 4, 7);
 board.checkState();
 board.show();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var que=require('./Utility/Queue');
+var rl=require('readline-sync');
+var util=require("./Utility/Utility");
+var queue= new que.Queue();
+
+console.log("......Welcom To The JS Bank......");
+var balance=15000;
+console.log("Current Balanc:"+balance);
+util.cashCounter(balance);
+
+
+
+
+
+
+
+    //Queue Data Structure
+    //Simulate Banking Cash Counter
+    cashCounter(balance){
+        var totalAmt=balance;
+        console.log(totalAmt);
+        var queue= new que.Queue();
+
+        //take input no of user in queue
+        var pepole=rl.questionInt("enter the no pepole in queue:");
+        for(var i=0;i<pepole.length;i++){
+            queue.inqueue(i);
+        }
+
+        //travers loop for no. of pepole in queue
+        while(pepole > 0){
+            var ch=0,amount=0;
+            ch=rl.questionInt("\n1.Press 1 for Deposit Amount.\n2.Prss 2 for Withdraw Amount.\n");
+            switch(ch){
+                case 1:
+                    //deposit amount
+                    amount=rl.questionInt("Enter the Amount : ");
+                   totalAmt= this.depositAmt(totalAmt,amount);
+                   break;
+                case 2:
+                    //withdraw amount
+                    amount=rl.questionInt("Enter the Amount :");
+                   totalAmt= this.withdrawAmt(totalAmt,amount);
+                   break;
+            }
+                pepole--;
+        }
+       
+    },
+    //deposit Amount
+    depositAmt(totalAmt,amount){
+        totalAmt+=amount;
+        console.log("Updated Balnce:"+totalAmt);
+        return totalAmt;
+    },
+    //withdraw Amount
+    withdrawAmt(totalAmt,amount){
+        if(totalAmt>amount){
+            totalAmt-=amount;
+            console.log("Updated Balnce:"+totalAmt);
+            return totalAmt;
+        }return console.log("Insufficent Balancle..\nCurrent Balance:"+totalAmt);
+        
+    },
+    //Dequeue Data Structure
+    //Palindrome-Checker
+    checkPalindrome(str){
+        var dqueue=new dque.Dequeue();
+        var count=0;
+        var Palindrome=false;
+        for(var i=0;i<str.length;i++){
+            dqueue.addRear(str[i]);
+        }
+        dqueue.qprint();
+        while(!dqueue.isEmpty() && dqueue.front!==dqueue.rear){
+            var str="",str2="";
+            str1=dqueue.removeRear();
+            str2=dqueue.removeFront();
+            if(str1===str2){
+                count++;
+            }
+        }
+    },

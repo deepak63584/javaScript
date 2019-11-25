@@ -1,4 +1,4 @@
-const util = require('./Utildata')
+const util = require('./utilitydata/Utildata')
 var rl = require('readline-sync')
 
 function isprimeAnagram() {
