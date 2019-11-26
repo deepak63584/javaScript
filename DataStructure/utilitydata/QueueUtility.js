@@ -1,58 +1,30 @@
-class Node {
-    constructor(data) {
-        this.data = data;
-        this.next;
-    }
-}
-class QueueUsingLinkList {
+class Queue {
     constructor() {
-        this.front = null;
-        this.rear = null;
-        this.size = 0;
+        this.data = [];
     }
-    isempty() {
-        /// console.log("mj");
-        if (this.rear == null) {
+    isEmpty() {
+        if (this.data == 0) {
             return true;
         } return false;
     }
-    size() {
-        return this.size;
-    }
-    enqueue(data) {
-
-        var node = new Node(data);
-        if (this.rear == null) {
-            this.front = this.rear = node;
-            this.size++;
-            return
-        }
-        this.rear.next = node;
-        this.rear = node;
-        this.size++;
+    inqueue(x) {
+        return this.data.push(x);
     }
     dequeue() {
-        if (this.front == null) {
-            console.log("List is Empty");
-            return null;
-        }
-        var temp = this.front;
-        this.front = this.front.next;
-
-        if (this.front == null)
-            this.rear = null;
-        return temp.data;
+        if (this.isEmpty()) {
+            console.log("Queue is empty.");
+            return true;
+        } return this.data.shift();
     }
-    display() {
-        var arr = "".data;
-        while (this.rear != null) {
-            arr += "->" + this.dequeue();
+    print() {
+        var str = "";
+        for (var i = 0; i < this.data.length; i++) {
+            str += this.data[i] + " ";
         }
-        console.log(arr);
+        console.log(str);
     }
 }
-
-
 module.exports = {
-    QueueUsingLinkList
+    Queue
 }
+

@@ -9,3 +9,11 @@ the Cash Balance.
         or withdraw money and maintain the cash balance.
     O/P ­> True or False to Show Arithmetic Expression is balanced or not.
  */
+
+const queueutil = require('./utilitydata/QueueUtility');
+const util = require('./utilitydata/Utildata')
+
+console.log("********Welcome to the Axis Bank :***********");
+var balance = 237598;
+console.log("Current balence : " + balance);
+util.cashCounter(balance);

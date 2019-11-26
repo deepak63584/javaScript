@@ -3,3 +3,13 @@
         the first dimension the week of the month and the second dimension stores the day
         of the week
 */
+
+const util = require('./utilitydata/Utildata');
+const readline = require('readline-sync');
+
+
+var month = readline.questionInt("Enter the month between o to 12 : \n");
+
+var year = readline.questionInt("Enter the year do you want : \n");
+
+util.calender(month, year);

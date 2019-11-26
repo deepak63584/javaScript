@@ -1,6 +1,3 @@
-
-
-
 const fs = require('fs');
 const rl = require('readline-sync');
 const util = require('./utilitydata/Utildata');
@@ -29,5 +26,5 @@ else {
 }
 linklist.DisplayList();
 var totallistdata = linklist.ReturnString();
-fs.writeFileSync("ordered.txt", totallistdata, 'utf-8');
+fs.writeFileSync("ordereddemo.txt", totallistdata, 'utf-8');
 

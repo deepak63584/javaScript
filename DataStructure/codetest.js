@@ -1,137 +1,121 @@
-const fs = require('fs');
-const rl = require('readline-sync');
-const util = require('./utilitydata/Utildata')
-
-// module.exports = {
-
 class Queue {
     constructor() {
         this.data = [];
-    }
-    isEmpty() {
-        if (this.data == 0) {
-            return true;
-        } return false;
-    }
-    inqueue(x) {
-        return this.data.push(x);
-    }
-    dequeue() {
-        if (this.isEmpty()) {
-            console.log("Queue is empty.");
-            return true;
-        } return this.data.shift();
-    }
-    print() {
-        var str = "";
-        for (var i = 0; i < this.data.length; i++) {
-            str += this.data[i] + " ";
-        }
-        console.log(str);
+    } Node {
+
+    var next;
+    constructor(Name, balance) {
+        this.Name = Name;
     }
 }
-module.exports = {
-    Queue
-}
-
-
-
-class Node {
-    constructor(data) {
-        this.data = data;
-        this.next = null;
+class QueueUtility {
+    front, rear;
+    bank = new Bank();
+    AddMoneyRecords(newNode) {
+        this.bank.balance = newNode.balance;
     }
-}
+    ShowCustomerStatus(newNode) {
+        QueueUtility utility = new QueueUtility();
+        Console.WriteLine("Customer Name=" + newNode.Name +
+            "\n Customer Balance=" + newNode.balance);
+        validTwo:
+        Console.WriteLine("1.Deposite \n2.Withdrawal \n" + "3.exit\n" +
+            "4.Bank Status \nenter your option.");
+        var option = Convert.ToInt32(Console.ReadLine());
+        switch (option) {
+            case 1:
+                Console.WriteLine("enter amount to deposite:");
+                var deposite = Convert.ToInt32(Console.ReadLine());
+                newNode.balance += deposite;
+                bank.balance += newNode.balance;
+                utility.AddMoneyRecords(bank);
+                utility.ShowCustomerStatus(newNode);
+                break;
 
-class Dequeue {
-    constructor() {
-        this.front = null;
-        this.rear = null;
-        this.queuesize = 0;
-    }
+            case 2:
+                Console.WriteLine("enter amount to withdrawal:");
+                var withdrawal = Convert.ToInt32(Console.ReadLine());
+                newNode.balance -= withdrawal;
+                bank.balance -= newNode.balance;
+                utility.AddMoneyRecords(bank);
+                utility.ShowCustomerStatus(newNode);
+                break;
 
-    isEmpty() {
-        if (this.front == this.rear == null) {
-            return true;
-        } return false;
-    }
-    addFront(data) {
-        var node = new Node(data);
-        // console.log(data);
-        if (this.front == null) {
-            this.front = node;
-            this.rear = node;
-            this.size++;
-            console.log("size" + this.size);
-            // console.log("if:"+data);
-        } else {
-            this.front.next = node;
-            this.front = node;
-            this.size++;
+            case 3:
+                utility.Dequeue();
+                Console.WriteLine("customer is out of the queue.");
+                break;
 
-            //console.log("else:"+data);
+            case 4: Console.WriteLine("Bank Balance=" + this.bank.balance);
+                goto validTwo;
+
+            default:
+                Console.WriteLine("invalid input!! enter your option again:");
+                goto validTwo;
         }
     }
-    addRear(data) {
-        var node = new Node(data);
-        if (this.front == null) {
-            this.front = node;
-            this.rear = node;
-            this.size++;
+    EnQueue(Name, balance) {
+        this.bank.balance = 10000000;
+        QueueUtility utility = new QueueUtility();
+        newNode = new Node(Name);
+        newNode.balance = balance;
+        //bank.balance += newNode.balance;
+        //utility.AddMoneyRecords(bank);
+        if (rear == null) {
+            front = rear = newNode;
+        }
+        rear.next = newNode;
+        rear = newNode;
+        Console.WriteLine("1.Deposite \n2.Withdrawal \n" +
+            "enter your option.");
+        validOne:
+        var option = Convert.ToInt32(Console.ReadLine());
+        switch (option) {
+            case 1: Console.WriteLine("enter amount to deposite:");
+                var deposite = Convert.ToInt32(Console.ReadLine());
+                newNode.balance += deposite;
+                bank.balance += newNode.balance;
+                utility.AddMoneyRecords(bank);
+                utility.ShowCustomerStatus(newNode);
+                break;
 
+            case 2:
+                Console.WriteLine("enter amount to withdrawal:");
+                var withdrawal = Convert.ToInt32(Console.ReadLine());
+                newNode.balance -= withdrawal;
+                bank.balance -= newNode.balance;
+                utility.AddMoneyRecords(bank);
+                utility.ShowCustomerStatus(newNode);
+                break;
+            default:
+                Console.WriteLine("invalid input!! enter your option again:");
+                goto validOne;
+        }
+    }
+
+    Dequeue() {
+        if (front == null) {
+            Console.WriteLine("Queue is empty");
+            return;
+        }
+        front = front.next;
+        Console.WriteLine("Element is deleted");
+        if (front == null) {
+            rear = null;
+        }
+    }
+    DisplayQueue() {
+        current = front;
+
+        if (current == null) {
+            Console.WriteLine("Queue is empty.");
         }
         else {
-            node.next = this.rear;
-            //this.rear.next=node;
-            this.rear = node;
-            this.size++;
-
-        }
-    }
-    removeFront() {
-        if (this.front == null) {
-            return false;
-        }
-        if (this.rear == this.front) {
-            this.rear = null;
-            this.front = null;
-            this.size--;
-
-        }
-        else {
-            var temp = this.rear;
-            while (temp.next != this.front) {
-                temp = temp.next;
+            while (current != null) {
+                Console.Write(current.Name + "-->");
+                current = current.next;
             }
-            this.front = temp;
-            this.front.next = null
-
+            Console.WriteLine();
         }
     }
-    removeRear() {
-        if (this.front == this.rear) {
-            this.front = null;
-            this.rear = null;
-        }
-        else {
-            this.rear = this.rear.next;
-        }
-    }
-    queuesize() {
-        return this.size;
-    }
-    qprint() {
-        var temp = this.rear;
-        var string1 = "";
-        while (temp != null) {
-            string1 += temp.data + "-> ";
-            //console.log(temp.data);
-            temp = temp.next;
-        }
-        console.log(string1);
-    }
-}
-
-module.exports = {
-    Dequeue
 }

@@ -12,6 +12,16 @@ class LinkedList {
         this.head = null;
         this.size = 0;
     }
+
+
+
+    isempty() {
+        if (this.head == 0) {
+            console.log("list is empty...")
+        }
+    }
+
+
     InsertFront(data) {
         var newNode = new Node(data);
         newNode.next = this.head;
@@ -222,6 +232,13 @@ class LinkedList {
 
 
 
+class Bank {
+    constructor(balance) {
+        this.balance
+    }
+}
+
+
 
 
 /**
@@ -230,9 +247,12 @@ class LinkedList {
  * @param {*} module : Export module from server :
  * 
  */
+const dequtil = require('./dequeue')
+const queutil = require('./QueueUtility')
 var readlinessync = require('readline-sync')
 module.exports = {
     LinkedList,
+    Bank,
 
     //**
     //* 
@@ -241,9 +261,6 @@ module.exports = {
     //*/
 
     isAnagram(str1, str2) {
-        //var str1=13,13,11;
-        //var str2=23,11,19;
-        var check = false;
         var count = 0;
         var string1 = str1.toString().split("");
         string1.sort();
@@ -288,7 +305,6 @@ module.exports = {
 
 
 
-
     isLeapYear(year) {
         /*
         * ensure year is of four digit
@@ -301,6 +317,59 @@ module.exports = {
             return false;
         }
     },
+
+    GetLast_Date(month, year) {
+        var lastDates = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        if (month == 2) {
+            if (this.isLeapYear(year)) {
+                return 29;
+            }
+            else {
+                return lastDates[month - 1];
+            }
+        }
+        else {
+            return lastDates[month - 1];
+        }
+    },
+    day(month, days, year) {
+        var y0 = year - Math.floor((14 - month) / 12);
+        // console.log(y0);
+        var x = y0 + Math.floor((y0 / 4)) - Math.floor((y0 / 100)) + Math.floor((y0 / 400));
+        //console.log(x);
+        m0 = month + 12 * Math.floor((14 - month) / 12) - 2;
+        //console.log(m0);
+        var d0 = (days + x + Math.floor((31 * m0) / 12)) % 7;
+        //.log(d0);
+
+        return d0;
+    },
+    // GetCalenderArray(firstDay, lastDay) {
+    //     var calenderArray = [6, 7];
+    //     var date = 1;
+    //     for (var i = 0; i < 6; i++) {
+    //         if (i == 0) {
+    //             for (var j = 7 - firstDay; j < 7; j++) {
+    //                 calenderArray[i, j] += date;
+    //                 date++;
+    //             }
+    //         }
+    //         else {
+    //             for (var j = 0; j < 7; j++) {
+    //                 if (date <= lastDay) {
+    //                     calenderArray[i, j] += date;
+    //                     date++;
+    //                 }
+    //             }
+
+    //         }
+    //     }
+    //     //console.log((calenderArray));
+
+    //     return calenderArray;
+
+    // },
+
     calender(month, year) {
 
         var months = [
@@ -321,46 +390,201 @@ module.exports = {
                 throw "Month value is Invalid , Please Enter a value in range 1-12"
             if (month == undefined || year == undefined)
                 throw "NO input found";
+            console.log();
 
             //checked year is leap year or not
             if (month == 2 && this.isLeapYear(year)) days[month] = 29;
             //show.print()
-            console.log("      " + months[month] + "      " + year);
-            console.log(" Sun  Mon Tues  Wed Thus  Fri  Sat");
+            console.log("              " + months[month] + " " + year);
+            console.log();
+
+            console.log("Mon   Tue   Wed   Thu   Fri   Sat   Sun");
 
             //days printing
             var day = this.day(month, 1, year);
+            //console.log(day);
 
             for (let i = 0; i < day; i++) {
-                show.print("     ")
+                process.stdout.write("     ");
+                //console.log(i);
+
             }
             for (var i = 1; i <= days[month]; i++) {
-                show.print("    ", i);
+                process.stdout.write("   ", i);
+                //console.log(i);
+
                 if (i < 10) {
-                    show.print("    ");
+                    process.stdout.write("   ");
+                    //console.log(i);
+
                 }
                 if (((i + day) % 7 == 0) || (i == days[month])) {
-                    console.log("    ");
+                    //console.log(i);
+
+                    console.log("   ");
                 }
             }
         }
+
         catch (err) {
-            console.log("Error: " + err);
+            console.log("Error:   " + err);
         }
     },
-    day(month, days, year) {
-        var y0 = year - Math.floor((14 - month) / 12);
-        console.log(y0);
-        var x = y0 + Math.floor((y0 / 4)) - Math.floor((y0 / 100)) + Math.floor((y0 / 400));
-        console.log(x);
-        m0 = month + 12 * Math.floor((14 - month) / 12) - 2;
-        console.log(m0);
-        var d0 = (days + x + Math.floor((31 * m0) / 12)) % 7;
-        console.log(d0);
 
-        return d0;
+
+
+
+    checkPalindromeWord(word) {
+
+
+        var size = word.length;
+        var isPalindrome = true;
+
+        //Dequeue
+        //let dequtil = new.Dequeue();
+        // var ch = word.split(" ");
+
+        for (let i = 0; i < size; i++) {
+            //To add element from rear
+            dequtil.addRear(word[i]);
+        }
+        while (!dequtil.isEmpty() && dequtil.front != dequtil.rear) {
+            //if removed element from front is not equal to removed element from rear then returns false
+            if (dequtil.removeFront() == dequtil.removeRear()) {
+                isPalindrome = true;
+            }
+            else {
+                return false;
+            }
+        }
+        return true;
     },
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Queue Data Structure
+    //Simulate Banking Cash Counter
+    cashCounter(balance) {
+        var totalAmt = balance;
+        console.log(totalAmt);
+        var queue = new queutil.Queue();
+
+        //take input no of user in queue
+        var pepole = readlinessync.questionInt("enter the no pepole in queue:");
+        for (var i = 0; i < pepole.length; i++) {
+            queue.inqueue(i);
+        }
+
+        //travers loop for no. of pepole in queue
+        while (pepole > 0) {
+            var ch = 0, amount = 0;
+            ch = readlinessync.questionInt("\n1.Press 1 for Deposit Amount.\n2.Prss 2 for Withdraw Amount.\n");
+            switch (ch) {
+                case 1:
+                    //deposit amount
+                    amount = readlinessync.questionInt("Enter the Amount : ");
+                    totalAmt = this.depositAmt(totalAmt, amount);
+                    break;
+                case 2:
+                    //withdraw amount
+                    amount = readlinessync.questionInt("Enter the Amount :");
+                    totalAmt = this.withdrawAmt(totalAmt, amount);
+                    break;
+                default:
+                    Console.WriteLine("invalid input!! enter your option again:");
+            }
+            pepole--;
+        }
+
+    },
+    //deposit Amount
+    depositAmt(totalAmt, amount) {
+        totalAmt += amount;
+        console.log("Updated Balnce:" + totalAmt);
+        return totalAmt;
+    },
+    //withdraw Amount
+    withdrawAmt(totalAmt, amount) {
+        if (totalAmt > amount) {
+            totalAmt -= amount;
+            console.log("Updated Balnce:" + totalAmt);
+            return totalAmt;
+        } return console.log("Insufficent Balancle..\nCurrent Balance:" + totalAmt);
+
+    },
+
+
+
+
+
+
+    //Dequeue Data Structure
+    //Palindrome-Checker
+    checkPalindrome(str) {
+        console.log(str);
+
+        var dqueue = new dequtil.Dequeue();
+        var count = 0;
+        var Palindrome = false;
+        for (var i = 0; i < str.length; i++) {
+            console.log(typeof (dqueue.addRear(str[i])));
+        }
+        console.log(
+            dqueue.qprint());
+        while (!dqueue.isEmpty() && dqueue.front !== dqueue.rear) {
+            var str = "", str2 = "";
+            str1 = dqueue.removeRear();
+            console.log(str1)
+            str2 = dqueue.removeFront();
+            console.log(str2);
+
+            if (str1 === str2) {
+                count++;
+            }
+        }
+    },
+
+
+    factorial(n) {
+        var fact = 1;
+        for (i = 1; i <= n; i++) {
+            //fact=fs.readFileSync(fileName).toString().split(" ");
+            //return content;
+            fact = fact * i;
+        } return fact;
+    },
+    binaryTree(node) {
+        var number = (Math.floor(this.factorial(2 * node)) / (this.factorial(node + 1) * this.factorial(node)));
+        return number;
+    },
 
 
 
