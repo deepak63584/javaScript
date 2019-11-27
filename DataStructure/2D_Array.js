@@ -1,3 +1,19 @@
+/**
+ * @param {*} problem 1 : Take a range of 0 ­ 1000 Numbers and find the Prime numbers
+in that range. Store the prime numbers in a 2D Array, the first dimension represents 
+the range 0­-100,100­-200, and so on. While the second dimension represents the prime numbers in
+that range
+
+ * @param {*} problem 2 :Extend the Prime Number Program and store only the numbers in that range 
+ that are Anagrams. For e.g. 17 and 71 are both Prime and Anagrams in the 0 to 1000 range.
+Further store in a 2D Array the numbers that are Anagram and numbers that are not
+Anagram.
+
+* @author : Deepak Singh
+
+* @since : 21/11/2019
+ */
+
 const util = require('./utilitydata/Utildata')
 var rl = require('readline-sync')
 

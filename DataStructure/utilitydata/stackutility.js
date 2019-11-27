@@ -1,3 +1,7 @@
+/**
+ * Creating node class and constructor for traversing each node 
+ */
+
 class Node {
     constructor(top, max) {
         this.top = top;
@@ -5,20 +9,37 @@ class Node {
 
     }
 }
+
+// Creating object of the node class
 var arr = new Node;
+
+/**
+ * Creating a Single LinkedList class
+ */
 class Stacklinkedlist {
     constructor() {
         this.top = -1;
         this.size = 0;
     }
+    /**
+     * if top is Empty then list is empty
+     */
     isEmpty() {
         if (this.top == -1) {
             return true;
         } return false;
     }
+
+    /**
+     * size of the list
+     */
     size() {
         return this.size;
     }
+    /**
+     * 
+     * @param {*} data : add data into list with respect to the top 
+     */
     pushdata(data) {
         if (this.top == (this.max - 1)) {
             return false;
@@ -29,6 +50,11 @@ class Stacklinkedlist {
             return true;
         }
     }
+
+
+    /**
+     * deleting a element from the front 
+     */
     pop() {
         if (this.top == -1) {
             return false;
@@ -39,9 +65,15 @@ class Stacklinkedlist {
             return true;
         }
     }
+
+    //trturn the value of top
     peek() {
         return arr[this.top];
     }
+
+    /**
+     * display the each list element
+     */
     display() {
         var str = "";
         for (var i = 0; i < this.size; i++) {
@@ -53,9 +85,15 @@ class Stacklinkedlist {
 module.exports = {
     Stacklinkedlist,
 
+
+    /**
+     * 
+     * @param {*} range : range will define by user where to find the prime Number 
+     */
     primeNumber(range) {
         var count;
         var pos = 0;
+        // Creating a new array to store the prime number
         var arr = new Array();
         for (var i = 2; i <= range; i++) {
             count = 0;
@@ -72,13 +110,38 @@ module.exports = {
         }
         return arr;
     },
-    //**
-    //* 
-    //* @param {*} str1 :
-    //* @param {*} str2 :
-    //*/
+
+    /**
+     * 
+     * @param {*} num : num will define by user where to find the prime Number 
+     */
+    isPrime(num) {
+        for (var i = 2; i < num; i++) {
+            if (num % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    },
+
+    display(n) {
+        var arr = [2];
+        for (var i = 3; i < n; i += 2) {
+            if (this.isPrime(i)) {
+                arr.push(i);
+            }
+        }
+        console.log(arr); // use arr result on your own
+    },
+
+    /**
+     * 
+     * @param {*} n1 :user define num which is check the another no will be anagram or not 
+     * @param {*} n2 : second user define no.
+     */
     isanagram(n1, n2) {
         console.log(n1, " " + n2)
+        //comparing the length of each array element
         if (n1.length !== n2.length) {
             return false;
         }

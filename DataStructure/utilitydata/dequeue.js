@@ -1,4 +1,6 @@
-
+/**
+ * Creating node class and constructor for traversing each node 
+ */
 class Node {
     constructor(data) {
         this.data = data;
@@ -6,6 +8,9 @@ class Node {
     }
 }
 
+/**
+ * Creating a dequeue class
+ */
 class Dequeue {
     constructor() {
         this.front = null;
@@ -13,28 +18,42 @@ class Dequeue {
         this.queuesize = 0;
     }
 
+    /**
+     * If front and rear both are empty then its empty
+     */
+
     isEmpty() {
         if (this.front == this.rear == null) {
             return true;
         } return false;
     }
+
+    /**
+     * 
+     * @param {*} data : add a node element with respect of front side
+     */
     addFront(data) {
         var node = new Node(data);
         // console.log(data);
-        if (this.front == null) {
+        if (this.front == null) {    // front is empty then front will be make node
             this.front = node;
             this.rear = node;
-            this.size++;
+            this.size++;              //increasing the size
             console.log("size" + this.size);
             // console.log("if:"+data);
         } else {
-            this.front.next = node;
+            this.front.next = node;     // if front node already exist then node go for next node 
             this.front = node;
             this.size++;
 
             //console.log("else:"+data);
         }
     }
+
+    /**
+     * 
+     * @param {*} data : add a node element with respect of rear side
+     */
     addRear(data) {
         var node = new Node(data);
         if (this.front == null) {
@@ -51,11 +70,15 @@ class Dequeue {
 
         }
     }
+
+    /**
+     * deleting a element from the front 
+     */
     removeFront() {
         if (this.front == null) {
             return false;
         }
-        if (this.rear == this.front) {
+        if (this.rear == this.front) {             // delete the element present inside it
             this.rear = null;
             this.front = null;
             this.size--;
@@ -71,6 +94,7 @@ class Dequeue {
 
         }
     }
+    // remove rear element 
     removeRear() {
         if (this.front == this.rear) {
             this.front = null;
@@ -80,9 +104,13 @@ class Dequeue {
             this.rear = this.rear.next;
         }
     }
+
+    // size of the queue
     queuesize() {
         return this.size;
     }
+
+    //printing each element inside the dequeue
     qprint() {
         var temp = this.rear;
         var string1 = "";
@@ -96,5 +124,7 @@ class Dequeue {
 }
 
 module.exports = {
+
+    //exporting the dequeue class
     Dequeue
 }

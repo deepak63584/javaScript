@@ -101,7 +101,7 @@ module.exports = {
                 }
             }
             if (b) {
-                console.log("klsdfj");
+                //console.log("klsdfj");
 
                 ar.push(j);
                 //console.log(ar);
