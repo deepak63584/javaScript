@@ -131,39 +131,64 @@ module.exports = {
                 arr.push(i);
             }
         }
-        console.log(arr); // use arr result on your own
+        //console.log(arr); // use arr result on your own
+        return arr;
     },
 
     /**
-     * 
-     * @param {*} n1 :user define num which is check the another no will be anagram or not 
-     * @param {*} n2 : second user define no.
-     */
-    isanagram(n1, n2) {
-        console.log(n1, " " + n2)
-        //comparing the length of each array element
-        if (n1.length !== n2.length) {
+    * @description : checks number are anagrams are or not
+    * @param {number to be checked for anagram} str1
+    * @param {number to be checked for anagram} str2 
+    */
+    checkAnagram(str1, str2) {
+        var check = false;
+        var count = 0;
+        var string1 = str1.toString().split("");
+        string1.sort();
+        var string2 = str2.toString().split("");
+        string2.sort();
+
+        var l1 = string1.length;
+        //console.log(l1);
+        if (string1.length != string2.length) {
             return false;
         }
-        n1count = this.count(n1);
-        n2count = this.count(n2);
-        for (var i = 0; i < n2count.length; i++) {
-            if (n1count[i] != n2count[i]) {
+
+        else {
+            for (var i = 0; i < l1; i++) {
+                if (string1[i] == string2[i]) {
+                    count++;
+                }
+            }
+            if (count == string1.length) {
+                return true;
+                //console.log("string are anagram");
+            }
+            else {
                 return false;
+                //console.log("string are not anagram");
             }
         }
-        return true;
     },
-    count(n) {
-        var count1 = [10];
-        var temp = n;
-        while (temp != 0) {
-            var r = temp % 10;
-            count1[r]++;
-            temp = temp / 10;
+    /**
+     * 
+     * @param {sort the no which is passing the anagram parameter} no 
+     */
+    sort(no) {
+        var arr = no;
+        for (var i = 0; i < arr.length - 1; i++) {
+            for (var j = i + 1; i < arr.length; j++) {
+                if (no[i] < no[j]) {
+                    var temp = no[i];
+                    no[i] = no[j];
+                    no[j] = temp;
+                }
+            }
         }
-        return count1;
+        return (arr);;
     },
+
+
 
 
 

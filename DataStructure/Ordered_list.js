@@ -21,8 +21,8 @@ var readnumber = fs.readFileSync('ordered.txt').toString().split(" ");
 console.log(readnumber);
 //console.log("Number list : ");
 for (var i = 0; i < readnumber.length; i++) {
-    linklist.InsertFront(readnumber[i]);
-    console.log(readnumber[i]);
+    linklist.InsertSorted(readnumber[i]);
+    //console.log(readnumber[i]);
 
 }
 console.log("Sorted number list : ");

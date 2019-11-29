@@ -9,17 +9,38 @@
  */
 
 
-const stackutil = require('./utilitydata/stackutility');
-const readstack = require('readline-sync');
+var util = require('./utilitydata/Utildata');
+var stklink = require('./utilitydata/stackutility');
 
-var pnum = stackutil.primeNumber(1000);
-//console.log(pnum);
-for (var i = 0; i < pnum.length - 1; i++) {
-    for (var j = i + 1; j = pnum.length; j++) {
-        console.log(pnum[j]);
+var primeNumbers = stklink.display(1000);
+console.log(primeNumbers);
+var arr = [];
+var range = 100;
+var k = 0;
+var stk = new stklink.Stacklinkedlist();
+for (var i = 0; i < primeNumbers.length - 1; i++) {
+    for (var j = i + 1; j < primeNumbers.length; j++) {
+        //check two primes angram or not
+        var value = (stklink.checkAnagram(primeNumbers[i], primeNumbers[j]))
 
-        var anagramdata = stackutil.isanagram(pnum[i], pnum[j])
-        console.log(pnum);
-        console.log(anagramdata);
+        //console.log(primeNumbers);
+        if (value == true) {
+            if (primeNumbers[i] <= range) {
+                if (primeNumbers[j] <= range) {
+                    stk.pushdata(primeNumbers[i]);
+                    stk.pushdata(primeNumbers[j]);
+                }
+            }
+            else {
+                range = range + 100;
+                if (primeNumbers[j] < range) {
+                    stk.pushdata(primeNumbers[i]);
+                    stk.pushdata(primeNumbers[j]);
+                }
+            }
+        }
     }
 }
+stk.display();
+//stk.reverse();
+//console.log(arr);

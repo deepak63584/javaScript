@@ -139,7 +139,7 @@ class LinkedList {
             current = current.next;
         }
         console.log(arr);
-        console.log(); primeNumber
+        console.log();
     }
     /**
      * return the data in string  

@@ -121,10 +121,66 @@ class Dequeue {
         }
         console.log(string1);
     }
+
+
+
+    /**
+         * @description : traversing the deque from the front to rear
+         * @returns : string 
+         */
+
+    printForword() {
+        var current = this.front;
+        var string = '';
+        while (current != null) {
+            string += current.data + ' '
+            current = current.next;
+        }
+        return string;
+    }
+
+    /**
+     * @description : traversing the deque from the rear to front
+     * @returns : string 
+     */
+
+    printBackword() {
+
+        var current = this.rear;
+        var string = '';
+        while (current != null) {
+            string += current.data + ' '
+            current = current.prev;
+        }
+        return string;
+    }
 }
 
 module.exports = {
 
     //exporting the dequeue class
-    Dequeue
+    Dequeue,
+
+
+    //Palindrome-Checker
+    checkPalindrome(str) {
+        var dqueue = new this.Dequeue();
+        var count = 0;
+        var Palindrome = false;
+        for (var i = 0; i < str.length; i++) {
+            dqueue.addRear(str[i]);
+        }
+        dqueue.qprint();
+        while (!dqueue.isEmpty() && dqueue.front !== dqueue.rear) {
+            var str = "", str2 = "";
+            str1 = dqueue.removeRear();
+            str2 = dqueue.removeFront();
+            if (str1 === str2) {
+                count++;
+            }
+        }
+    },
+
+
+
 }

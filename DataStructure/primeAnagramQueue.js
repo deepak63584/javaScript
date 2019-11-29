@@ -10,11 +10,10 @@
 
  */
 const queueutil = require('./utilitydata/queueLinklist');
-const util = require('./utilitydata/Utildata')
 
 
 var queue = new queueutil.Queue_LinkList();
-var primeNumber = util.display(1000);
+var primeNumber = queueutil.display(1000);
 console.log(primeNumber);
 var range = 100;
 
@@ -22,7 +21,7 @@ var range = 100;
 for (var i = 0; i < primeNumber.length; i++) {
     for (var j = i + 1; j < primeNumber.length; j++) {
         //cheked two primeNumbers are anagram or not
-        var value = (util.isAnagram(primeNumber[i], primeNumber[j]));
+        var value = (queueutil.checkAnagram(primeNumber[i], primeNumber[j]));
 
         if (value === true) {
             //store in value in queue
