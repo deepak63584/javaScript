@@ -1,27 +1,21 @@
 {
     "RiceList": [
         {
-            "Name": "Daawat Biryani",
+            "Name": "Daawat",
             "Price": 130,
-            "Kg": 8,
+            "Kg": 18,
             "Type": "long Grain"
         },
         {
             "Name": "India Gate",
             "Price": 120,
-            "Kg": 6,
+            "Kg": 16,
             "Type": "Medium Grain"
-        },
-        {
-            "Name": "Fortune Everyday",
-            "Price": 90,
-            "Kg": 5,
-            "Type": "Broken Grain"
         },
         {
             "Name": "Daawat Brown",
             "Price": 120,
-            "Kg": 4,
+            "Kg": 14,
             "Type": "Broken Grain"
         },
         {
@@ -35,25 +29,25 @@
         {
             "Name": "Kidney Beens",
             "Price": 110,
-            "Kg": 8,
+            "Kg": 18,
             "Type": "red beens"
         },
         {
             "Name": "Kala Chana",
             "Price": 90,
-            "Kg": 5,
+            "Kg": 15,
             "Type": "dry"
         },
         {
             "Name": "Urad Dal",
             "Price": 110,
-            "Kg": 5,
+            "Kg": 15,
             "Type": "Greensish"
         },
         {
             "Name": "Mung beans",
             "Price": 98,
-            "Kg": 5,
+            "Kg": 15,
             "Type": "Greensish"
         }
     ],
@@ -77,7 +71,7 @@
             "Type": "Hard"
         },
         {
-            "Name": "Hardred",
+            "Name": "Hardred        ",
             "Price": 95,
             "Kg": 12,
             "Type": "Hard"

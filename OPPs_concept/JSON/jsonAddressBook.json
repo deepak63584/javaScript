@@ -1,0 +1,49 @@
+{
+    "PersonList": [
+        {
+            "FirstName": "Sambha",
+            "LastName": "Shethhi",
+            "Address": "29/2 LB Chowk",
+            "City": "ChandaniChowk",
+            "State": "NewDelhi",
+            "ZipCode": 110006,
+            "PhoneNumber": 9752835489
+        },
+        {
+            "FirstName": "Sambhi",
+            "LastName": "Chawale",
+            "Address": "L T road",
+            "City": "GovindPuri",
+            "State": "UK",
+            "ZipCode": 249201,
+            "PhoneNumber": 9658985154
+        },
+        {
+            "FirstName": "Manga",
+            "LastName": "Munele",
+            "Address": "YS kunnur road",
+            "City": "Kunnur",
+            "State": "Kerala",
+            "ZipCode": 354001,
+            "PhoneNumber": 8671264143
+        },
+        {
+            "FirstName": "Diwakar",
+            "LastName": "Waltar",
+            "Address": "RingRoad",
+            "City": "lucknow",
+            "State": "UP",
+            "ZipCode": 249201,
+            "PhoneNumber": 8658985154
+        },
+        {
+            "FirstName": "Ramu",
+            "LastName": "Rannane",
+            "Address": "Rumaroad",
+            "City": "Pune",
+            "State": "Maharashtra",
+            "ZipCode": 410005,
+            "PhoneNumber": 6397589242
+        }
+    ]
+}

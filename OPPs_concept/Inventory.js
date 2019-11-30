@@ -26,7 +26,7 @@
  */
 
 const fs = require('fs');
-const Inventory_util = require('./inventory_utility');
+const Inventory_util = require('./inventoryManagement');
 const readlinelist = require('readline-sync');
 //Inventory_util.Inventory.DataCue();
 //Inventory_util.inventory_user.dispalydata();
