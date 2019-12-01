@@ -26,7 +26,30 @@
  */
 
 const fs = require('fs');
-const Inventory_util = require('./inventoryManagement');
+const inventManage = require('./inventoryManagement');
+const inventoryUtil = require('./inventoryUtility');
 const readlinelist = require('readline-sync');
-//Inventory_util.Inventory.DataCue();
-//Inventory_util.inventory_user.dispalydata();
+
+var inventManager = new inventManage.inventoryManagementData();
+var inventuser = new inventoryUtil.inventoryUser();
+function inventoryLogIn() {
+        console.log("************************INVENTORY LOGIN************************");
+        console.log(" 1. InventoryUser \n 2. InventoryManager \n 3. Exit");
+        var choice = readlinelist.questionInt(" Enter Your choice Do you want : \n")
+        switch (choice) {
+                case 1:
+                        inventuser.dispalydata();
+                        break;
+
+                case 2:
+                        inventManager.inventoryManagementData();
+                        break;
+
+                case 3:
+                        console.log("Exit");
+                default:
+                        break;
+        }
+
+}
+inventoryLogIn();

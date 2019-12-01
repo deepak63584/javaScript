@@ -165,5 +165,7 @@ class inventoryUser extends Inventory {
 
 }
 
-var inventuser = new inventoryUser();
-inventuser.dispalydata();
+
+module.exports = {
+    inventoryUser,
+}

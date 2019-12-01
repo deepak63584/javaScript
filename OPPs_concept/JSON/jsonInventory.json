@@ -23,6 +23,12 @@
             "Price": 150,
             "Kg": 23,
             "Type": "long grains"
+        },
+        {
+            "Name": "adirice",
+            "Price": "110",
+            "Kg": "22",
+            "Type": "black"
         }
     ],
     "PulseList": [
