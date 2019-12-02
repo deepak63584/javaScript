@@ -1,49 +1,31 @@
 {
-    "PersonList": [
+    "personList": [
         {
-            "FirstName": "Sambha",
-            "LastName": "Shethhi",
-            "Address": "29/2 LB Chowk",
-            "City": "ChandaniChowk",
-            "State": "NewDelhi",
-            "ZipCode": 110006,
-            "PhoneNumber": 9752835489
+            "firstName": "Joey",
+            "lastName": "Cooper",
+            "address": "16,25B,Los Angeles",
+            "city": "Los Angeles",
+            "state": "USA",
+            "zipCode": 123432,
+            "mobileNo": 9767880950
         },
         {
-            "FirstName": "Sambhi",
-            "LastName": "Chawale",
-            "Address": "L T road",
-            "City": "GovindPuri",
-            "State": "UK",
-            "ZipCode": 249201,
-            "PhoneNumber": 9658985154
+            "firstName": "Serena",
+            "lastName": "Woodson",
+            "address": "16,25B,Los",
+            "city": "Los Angls",
+            "state": "USA",
+            "zipCode": 123482,
+            "mobileNo": 9767990950
         },
         {
-            "FirstName": "Manga",
-            "LastName": "Munele",
-            "Address": "YS kunnur road",
-            "City": "Kunnur",
-            "State": "Kerala",
-            "ZipCode": 354001,
-            "PhoneNumber": 8671264143
-        },
-        {
-            "FirstName": "Diwakar",
-            "LastName": "Waltar",
-            "Address": "RingRoad",
-            "City": "lucknow",
-            "State": "UP",
-            "ZipCode": 249201,
-            "PhoneNumber": 8658985154
-        },
-        {
-            "FirstName": "Ramu",
-            "LastName": "Rannane",
-            "Address": "Rumaroad",
-            "City": "Pune",
-            "State": "Maharashtra",
-            "ZipCode": 410005,
-            "PhoneNumber": 6397589242
+            "firstName": "Charlie",
+            "lastName": "Bing",
+            "address": "16,25B,Los A",
+            "city": "Los Angels",
+            "state": "NYC",
+            "zipCode": 626482,
+            "mobileNo": 8767990950
         }
     ]
 }

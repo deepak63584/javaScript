@@ -1,4 +1,6 @@
 /**
+                                @inventoryManagement
+                                
 @description : Create a JSON file having Inventory Details for Rice, Pulses and Wheats
             with properties name, weight, price per kg.
 @uses Library:  Java JSON Library , For IOS JSON Library use
@@ -43,6 +45,19 @@ function inventoryLogIn() {
 
                 case 2:
                         inventManager.inventoryManagementData();
+                        let inventManageData = inventoryManagementData.questionInt("Enter your choice : ")
+                        switch (inventManageData) {
+                                case 1:
+                                        inventManageData.addData();
+                                        break;
+                                case 2:
+                                        inventManageData.removeData();
+                                        break;
+
+                                default:
+                                        console.log("Invalid choice : ");
+                                        break;
+                        }
                         break;
 
                 case 3:
