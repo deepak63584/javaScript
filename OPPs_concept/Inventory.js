@@ -44,7 +44,7 @@ function inventoryLogIn() {
                         break;
 
                 case 2:
-                        inventManager.inventoryManagementData();
+                        inventManager.inventorymanagement();
                         let inventManageData = inventoryManagementData.questionInt("Enter your choice : ")
                         switch (inventManageData) {
                                 case 1:

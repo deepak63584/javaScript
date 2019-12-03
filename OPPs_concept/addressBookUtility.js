@@ -4,7 +4,7 @@
 
 const fs = require('fs');
 const readline = require('readline-sync');
-var util = require('./utility');
+var util = require('./util');
 
 class addressBook {
     constructor() {
@@ -57,7 +57,8 @@ class AddressBook extends addressBook {
                 "mobileNo": mobileNo
             })
 
-            fs.writeFileSync("JSON/jsonpersonList.json", JSON.stringify(this.data), 'utf-8');
+
+            fs.writeFileSync("JSON/jsonAddressBook.json", JSON.stringify(this.data), 'utf-8');
         }
         else {
             console.log('Your details are already in address book');
@@ -76,7 +77,7 @@ class AddressBook extends addressBook {
                     var index = this.data.personList.indexOf(this.data.personList.firstName);
                     //delete the element
                     this.data.personList.splice(index, 1);
-                    util.writeFile('/home/admin1/JavaScriptNew-master/OOP/json/addressBook.json', this.data);
+                    fs.writeFileSync("JSON/jsonAddressBook.json", JSON.stringify(this.data), 'utf-8');
                     console.log('Details have been removed successfully');
                     break;
                 }
@@ -148,43 +149,43 @@ class AddressBook extends addressBook {
                             console.log('Enter your first name=');
                             var firstName = util.inputStringRead();
                             this.data.personList[i].firstName = firstName;
-                            util.writeFile("/home/admin1/JavaScriptNew-master/OOP/json/addressBook.json", this.data);
+                            fs.writeFileSync("JSON/jsonAddressBook.json", JSON.stringify(this.data), 'utf-8');
                             break;
                         case 2:
                             console.log('Enter your last name=');
                             var lastName = util.inputStringRead();
                             this.data.personList[i].lastName = lastName;
-                            util.writeFile("/home/admin1/JavaScriptNew-master/OOP/json/addressBook.json", this.data);
+                            fs.writeFileSync("JSON/jsonAddressBook.json", JSON.stringify(this.data), 'utf-8');
                             break;
                         case 3:
                             console.log('Enter your address=');
                             var address = util.inputStringRead();
                             this.data.personList[i].address = address;
-                            util.writeFile("/home/admin1/JavaScriptNew-master/OOP/json/addressBook.json", this.data);
+                            fs.writeFileSync("JSON/jsonAddressBook.json", JSON.stringify(this.data), 'utf-8');
                             break;
                         case 4:
                             console.log('Enter your city=');
                             var city = util.inputStringRead();
                             this.data.personList[i].city = city;
-                            util.writeFile("/home/admin1/JavaScriptNew-master/OOP/json/addressBook.json", this.data);
+                            fs.writeFileSync("JSON/jsonAddressBook.json", JSON.stringify(this.data), 'utf-8');
                             break;
                         case 5:
                             console.log('Enter your state=');
                             var state = util.inputStringRead();
                             this.data.personList[i].state = state;
-                            util.writeFile("/home/admin1/JavaScriptNew-master/OOP/json/addressBook.json", this.data);
+                            fs.writeFileSync("JSON/jsonAddressBook.json", JSON.stringify(this.data), 'utf-8');
                             break;
                         case 6:
                             console.log('Enter zipcode=');
                             var zipCode = util.inputStringRead();
                             this.data.personList[i].zipCode = zipCode;
-                            util.writeFile("/home/admin1/JavaScriptNew-master/OOP/json/addressBook.json", this.data);
+                            fs.writeFileSync("JSON/jsonAddressBook.json", JSON.stringify(this.data), 'utf-8');
                             break;
                         case 7:
                             console.log('Enter mobile number=');
                             var mobileNo = util.inputStringRead();
                             this.data.personList[i].mobileNo = mobileNo;
-                            util.writeFile("/home/admin1/JavaScriptNew-master/OOP/json/addressBook.json", this.data);
+                            fs.writeFileSync("JSON/jsonAddressBook.json", JSON.stringify(this.data), 'utf-8');
                             break;
                         case 8:
                             return;

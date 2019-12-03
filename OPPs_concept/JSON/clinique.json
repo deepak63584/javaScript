@@ -1,5 +1,5 @@
 {
-    "Doctor": [
+    "doctor": [
         {
             "doctorName": "Dr C P Chaddha",
             "ID": 123,
@@ -17,9 +17,15 @@
             "ID": 134,
             "specialization": "Internal medicine",
             "availablity": "PM"
+        },
+        {
+            "doctorName": "Dr Sameera",
+            "ID": "124",
+            "specialization": "Plastic Surgen",
+            "availablity": "Both"
         }
     ],
-    "Patient": [
+    "patient": [
         {
             "patientname": "Sam DSouza",
             "pId": 1111,
@@ -54,10 +60,15 @@
             "patientname": "Megan",
             "pId": 1116,
             "mobNo": 7856983547,
-            "age": 27
+            "age": 27,
+            "p_Id": null
+        },
+        {
+            "patientname": "Baala",
+            "pId": 1117,
+            "mobNo": "7896548796",
+            "age": 24
         }
     ],
-    "TakeAppointment": [
-        {}
-    ]
+    "ClinqueAppointment": []
 }

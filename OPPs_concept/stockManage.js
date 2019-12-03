@@ -15,8 +15,8 @@
  */
 
 
-var utility = require('./utilityOp/stockManagement');
-var util = require('../utility/utility');
+var utility = require('./stockUtility');
+var util = require('./util');
 var stockM = new utility.stockManagement();
 function stock() {
     do {
